@@ -1,7 +1,7 @@
 import express from 'express'
 import cors from 'cors'
+import { globalErrorHandle } from './app/middleware/globalErrorHandle'
 const app = express()
-const port = 3000
 
 //Parser
 app.use(express.json())
@@ -11,6 +11,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-
-
+//Handle global error
+app.use(globalErrorHandle)
 export default app
