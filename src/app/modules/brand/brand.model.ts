@@ -1,8 +1,9 @@
 import { Schema, model } from "mongoose";
-import { TCategory } from "./category.interface";
+import { TBrand } from "./brand.interface";
 
 
-const categorySchema = new Schema<TCategory>(
+
+const brandSchema = new Schema<TBrand>(
     {
       name: {
         type: String,
@@ -23,4 +24,4 @@ const categorySchema = new Schema<TCategory>(
       timestamps: true
     })
 
-    export const Category=model<TCategory>('Category',categorySchema)
+    export const Brand=model<TBrand>('Brand',brandSchema)
