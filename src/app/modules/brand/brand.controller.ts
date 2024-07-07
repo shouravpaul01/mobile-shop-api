@@ -12,8 +12,8 @@ const createBrandInto = catchAsync(async (req, res) => {
     data: result,
   });
 });
-const getAllBrands = catchAsync(async (req, res) => {
-  const result = await BrandServices.getAllBrandsDB();
+const getAllBrands = catchAsync(async (req, res) => { 
+  const result = await BrandServices.getAllBrandsDB(req.query);
   sendResponse(res, {
     statusCode: httpStatus.OK,
     status: true,
