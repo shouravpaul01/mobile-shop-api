@@ -1,8 +1,15 @@
+import httpStatus from "http-status";
+import AppError from "../../errors/AppError";
 import { TBrand } from "./brand.interface";
 import { Brand } from "./brand.model";
 
 
 const createBrandIntoDB = async (payload: TBrand) => {
+  const isBrandExists=await Brand.findOne({name:payload.name})
+  if(isBrandExists){
+    throw new AppError(httpStatus.NOT_FOUND,"name","Brand name already exist.");
+    
+  }
   const result = await Brand.create(payload);
   return result;
 };

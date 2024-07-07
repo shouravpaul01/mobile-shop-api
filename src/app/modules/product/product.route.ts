@@ -16,7 +16,8 @@ router.get("/", ProductControllers.getAllProducts);
 router.get("/:productId", ProductControllers.getSingleProduct);
 router.patch(
   "/:productId",
-  validateRequest(updateProductValidationSchema),
+  upload.array('files',5),
+  parseDataHandler,
   ProductControllers.updateProductInto
 );
 router.delete("/:productId", ProductControllers.deleteProduct);

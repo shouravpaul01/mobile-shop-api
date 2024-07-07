@@ -1,13 +1,14 @@
 import { Types } from "mongoose";
 
 export type TVariant = {
+  _id?: Types.ObjectId;
   storage: string;
   colorName: string;
   colorCode: string;
   price: number;
   quantity: number;
   image: string;
-  isStock:boolean
+  isStock: boolean;
 };
 
 export type TSpecifications = {
@@ -58,5 +59,5 @@ export type TProduct = {
   longDescription: string;
   warranty: string;
   rating?: number | string;
-  isDeleted:boolean
+  isDeleted: boolean;
 };
